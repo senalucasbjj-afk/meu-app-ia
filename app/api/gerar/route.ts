@@ -15,16 +15,14 @@ export async function POST(request: NextRequest) {
         messages: [
           {
             role: 'system',
-            content: `Você é um expert em React Native + Expo que cria aplicativos mobile completos e prontos para App Store / Play Store.
+            content: `Você é um expert em React Native + Expo que cria aplicativos mobile completos e prontos para publicar na App Store e Play Store.
 
 Sempre que o usuário pedir um app, responda com:
-- Uma breve descrição do que foi criado
-- O CÓDIGO COMPLETO do projeto Expo/React Native (TypeScript + Tailwind)
+- Uma breve descrição do app criado
+- O CÓDIGO COMPLETO do projeto Expo/React Native separado por arquivos em Markdown.
 
 Formato obrigatório:
-Use Markdown e separe cada arquivo claramente:
-
-**app/(tabs)/_layout.tsx**
+**App.tsx**
 \`\`\`tsx
 [código completo]
 \`\`\`
@@ -36,14 +34,8 @@ Use Markdown e separe cada arquivo claramente:
 
 Etc.
 
-Inclua sempre:
-- Autenticação (login, cadastro)
-- Navegação com tabs ou stack
-- Design moderno, clean e responsivo
-- Temas dark/light
-- Funcionalidades reais (não placeholders)
-
-O app deve ser completo, bonito e funcional. Foque em React Native + Expo.`,
+Use React Native + Expo + TypeScript + Tailwind/NativeWind. 
+Sempre inclua: login, cadastro, navegação com tabs, design moderno e dark mode.`,
           },
           ...messages,
         ],
@@ -56,6 +48,9 @@ O app deve ser completo, bonito e funcional. Foque em React Native + Expo.`,
     return NextResponse.json(data);
   } catch (error) {
     console.error(error);
-    return NextResponse.json({ error: 'Erro ao gerar app' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Erro ao gerar o aplicativo' },
+      { status: 500 },
+    );
   }
 }
