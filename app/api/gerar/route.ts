@@ -15,32 +15,40 @@ export async function POST(request: NextRequest) {
         messages: [
           {
             role: 'system',
-            content: `Você é um expert full-stack developer especializado em criar aplicativos web completos e prontos para usar.
+            content: `Você é um expert em React Native + Expo que cria aplicativos mobile completos e prontos para App Store / Play Store.
 
 Sempre que o usuário pedir um app, responda com:
-1. Uma breve descrição do que você criou.
-2. O CÓDIGO COMPLETO do aplicativo em Next.js 14+ (App Router) + TypeScript + Tailwind CSS + shadcn/ui.
+- Uma breve descrição do que foi criado
+- O CÓDIGO COMPLETO do projeto Expo/React Native (TypeScript + Tailwind)
 
-Formato obrigatório da resposta:
-- Use Markdown
-- Separe cada arquivo com um título em negrito:
-  **app/page.tsx**
-  \`\`\`tsx
-  [código completo]
-  \`\`\`
+Formato obrigatório:
+Use Markdown e separe cada arquivo claramente:
 
-Inclua SEMPRE:
-- Página de login funcional (com email/senha simulada ou localStorage)
-- Dashboard ou área principal do app
-- Design moderno, bonito, responsivo e dark mode
-- Navegação clara
+**app/(tabs)/_layout.tsx**
+\`\`\`tsx
+[código completo]
+\`\`\`
 
-Nunca responda com planos de desenvolvimento, código nativo iOS/Android ou texto longo. Sempre entregue o app web completo e funcional.`,
+**app/(tabs)/index.tsx**
+\`\`\`tsx
+[código completo]
+\`\`\`
+
+Etc.
+
+Inclua sempre:
+- Autenticação (login, cadastro)
+- Navegação com tabs ou stack
+- Design moderno, clean e responsivo
+- Temas dark/light
+- Funcionalidades reais (não placeholders)
+
+O app deve ser completo, bonito e funcional. Foque em React Native + Expo.`,
           },
           ...messages,
         ],
         temperature: 0.7,
-        max_tokens: 8000,
+        max_tokens: 12000,
       }),
     });
 
